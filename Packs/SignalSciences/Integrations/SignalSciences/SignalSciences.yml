@@ -111,6 +111,7 @@ script:
       description: The site that holds the whitelist you want to add an IP address to.
     - name: ip
       required: true
+      isArray: true
       description: The IP address to add to the site's whitelist.
     - name: note
       required: true
@@ -145,6 +146,7 @@ script:
     - name: ip
       required: true
       description: The IP address to add to the site's blacklist.
+      isArray: true
     - name: note
       required: true
       description: The note associated with the tag.
