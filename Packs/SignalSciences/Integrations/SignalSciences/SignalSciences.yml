@@ -34,7 +34,8 @@ configuration:
   defaultvalue: "720"
   type: 0
   required: false
-- display: CSV list of sites to fetch from. If no sites are specified, events from all corporation's sites will be fetched.
+- display: CSV list of sites to fetch from. If no sites are specified, events from
+    all corporation's sites will be fetched.
   name: sites_to_fetch
   defaultvalue: ""
   type: 12
@@ -78,7 +79,8 @@ script:
     - contextPath: SigSciences.Corp.Site.Whitelist.CreatedBy
       description: The user who added this source.
       type: string
-    description: Fetches a site's whitelist, which resides on the Signal Sciences' platform.
+    description: Fetches a site's whitelist, which resides on the Signal Sciences'
+      platform.
   - name: sigsci-get-blacklist
     arguments:
     - name: siteName
@@ -103,12 +105,14 @@ script:
     - contextPath: SigSciences.Corp.Site.Blacklist.CreatedBy
       description: The user who added this source.
       type: string
-    description: Fetches a site's blacklist, which resides on the Signal Sciences' platform.
+    description: Fetches a site's blacklist, which resides on the Signal Sciences'
+      platform.
   - name: sigsci-whitelist-add-ip
     arguments:
     - name: siteName
       required: true
-      description: The site that holds the whitelist you want to add an IP address to.
+      description: The site that holds the whitelist you want to add an IP address
+        to.
     - name: ip
       required: true
       isArray: true
@@ -117,7 +121,9 @@ script:
       required: true
       description: The note associated with the tag.
     - name: expires
-      description: The datetime for the IP address to removed from the site's whitelist (in RFC3339 format). To keep the IP address on the site's whitelist indefinitely, do not specify this argument.
+      description: The datetime for the IP address to removed from the site's whitelist
+        (in RFC3339 format). To keep the IP address on the site's whitelist indefinitely,
+        do not specify this argument.
     outputs:
     - contextPath: SigSciences.Corp.Site.Whitelist.Source
       description: The IP address on the whitelist.
@@ -137,7 +143,8 @@ script:
     - contextPath: SigSciences.Corp.Site.Whitelist.ExpiryDate
       description: The expiration timestamp.
       type: date
-    description: Adds an IP address to a site's whitelist, which resides the Signal Sciences' platform.
+    description: Adds an IP address to a site's whitelist, which resides the Signal
+      Sciences' platform.
   - name: sigsci-blacklist-add-ip
     arguments:
     - name: siteName
@@ -151,7 +158,9 @@ script:
       required: true
       description: The note associated with the tag.
     - name: expires
-      description: The datetime for the IP address to removed from the site's blacklist (in RFC3339 format). To keep the IP address on the site's blacklist indefinitely, do not specify this argument.
+      description: The datetime for the IP address to removed from the site's blacklist
+        (in RFC3339 format). To keep the IP address on the site's blacklist indefinitely,
+        do not specify this argument.
     outputs:
     - contextPath: SigSciences.Corp.Site.Blacklist.Source
       description: The IP address on the blacklist.
@@ -171,25 +180,30 @@ script:
     - contextPath: SigSciences.Corp.Site.Blacklist.ExpiryDate
       description: The expiration timestamp.
       type: date
-    description: Adds an IP to a site's blacklist, which resides on the Signal Sciences' platform.
+    description: Adds an IP to a site's blacklist, which resides on the Signal Sciences'
+      platform.
   - name: sigsci-whitelist-remove-ip
     arguments:
     - name: siteName
       required: true
-      description: The site that contains the whitelist you want to remove an IP address from.
+      description: The site that contains the whitelist you want to remove an IP address
+        from.
     - name: IP
       required: true
       description: The IP address entry to remove.
-    description: Removes an IP address from a site's whitelist, which resides on the Signal Sciences' platform.
+    description: Removes an IP address from a site's whitelist, which resides on the
+      Signal Sciences' platform.
   - name: sigsci-blacklist-remove-ip
     arguments:
     - name: siteName
       required: true
-      description: The site that contains the blacklist you want to remove an IP address from.
+      description: The site that contains the blacklist you want to remove an IP address
+        from.
     - name: IP
       required: true
       description: The IP address entry to remove.
-    description: Removes an IP from a site's blacklist, which resides on the Signal Sciences' platform.
+    description: Removes an IP from a site's blacklist, which resides on the Signal
+      Sciences' platform.
   - name: sigsci-get-sites
     arguments: []
     outputs:
@@ -204,7 +218,8 @@ script:
     arguments:
     - name: siteName
       required: true
-      description: The name of the site in Signal Sciences you want to add a list to.
+      description: The name of the site in Signal Sciences you want to add a list
+        to.
     - name: list_name
       required: true
       description: The name of the list to create on Signal Sciences.
@@ -216,7 +231,8 @@ script:
       - String
       - Country
       - Wildcard
-      description: The type for the list you wish to create on Signal Sciences. Legal types are IP, String, Country or Wildcard
+      description: The type for the list you wish to create on Signal Sciences. Legal
+        types are IP, String, Country or Wildcard
     - name: entries_list
       required: true
       description: A CSV list of values, consistent with the list's type.
@@ -252,7 +268,8 @@ script:
     arguments:
     - name: siteName
       required: true
-      description: The name of the site in Signal Sciences that the list you're searching for belongs to.
+      description: The name of the site in Signal Sciences that the list you're searching
+        for belongs to.
     - name: list_id
       required: true
       description: The ID of the list.
@@ -280,7 +297,8 @@ script:
     arguments:
     - name: siteName
       required: true
-      description: The name of the site in Signal Sciences you want to delete a list from.
+      description: The name of the site in Signal Sciences you want to delete a list
+        from.
     - name: list_id
       required: true
       description: The ID of the list in Signal Sciences to delete.
@@ -289,7 +307,8 @@ script:
     arguments:
     - name: siteName
       required: true
-      description: The name of the site in Signal Sciences that the list to update belongs to.
+      description: The name of the site in Signal Sciences that the list to update
+        belongs to.
     - name: list_id
       required: true
       description: The ID of the list to update.
@@ -299,7 +318,8 @@ script:
       predefined:
       - Add
       - Remove
-      description: The method to use, must be "Add" or "Remove". The method will determine whether the given entries are added to or removed from the list.
+      description: The method to use, must be "Add" or "Remove". The method will determine
+        whether the given entries are added to or removed from the list.
     - name: entries_list
       required: true
       description: A CSV list of values, consistent with the list's type.
@@ -320,7 +340,8 @@ script:
       description: The ID of the list in Signal Sciences.
       type: string
     - contextPath: SigSciences.Corp.Site.List.Description
-      description: The description of the list in Signal Sciences. Maximum is 140 characters.
+      description: The description of the list in Signal Sciences. Maximum is 140
+        characters.
       type: string
     - contextPath: SigSciences.Corp.Site.List.CreatedBy
       description: The creator of the list in Signal Sciences.
@@ -339,7 +360,8 @@ script:
       description: The name of the site to add an alert to.
     - name: long_name
       required: true
-      description: A human readable description of the alert. Must be between 3 and 25 characters.
+      description: A human readable description of the alert. Must be between 3 and
+        25 characters.
     - name: interval
       required: true
       auto: PREDEFINED
@@ -347,13 +369,16 @@ script:
       - "1"
       - "10"
       - "60"
-      description: The number of minutes of past traffic to examine. Must be 1, 10 or 60.
+      description: The number of minutes of past traffic to examine. Must be 1, 10
+        or 60.
     - name: tag_name
       required: true
-      description: The name of the tag whose occurrences the alert is watching. Must match an existing tag.
+      description: The name of the tag whose occurrences the alert is watching. Must
+        match an existing tag.
     - name: threshold
       required: true
-      description: ' The number of occurrences of the tag in the specified interval that are required to trigger the alert.'
+      description: ' The number of occurrences of the tag in the specified interval
+        that are required to trigger the alert.'
     - name: enabled
       required: true
       auto: PREDEFINED
@@ -367,7 +392,9 @@ script:
       predefined:
       - info
       - flagged
-      description: A flag that describes what happens when the alert is triggered. "info" creates an incident in the dashboard. "flagged" creates an incident and blocks traffic for 24 hours.
+      description: A flag that describes what happens when the alert is triggered.
+        "info" creates an incident in the dashboard. "flagged" creates an incident
+        and blocks traffic for 24 hours.
     outputs:
     - contextPath: SigSciences.Corp.Site.Alert.ID
       description: The unique ID of the alert.
@@ -385,13 +412,15 @@ script:
       description: The number of minutes of past traffic to examine.
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.Threshold
-      description: The number of occurrences of the tag in the specified interval that are required to trigger the alert.
+      description: The number of occurrences of the tag in the specified interval
+        that are required to trigger the alert.
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.BlockDurationSeconds
       description: ' The number of seconds that this alert is active.'
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.SkipNotifications
-      description: A flag to disable external notifications - Slack, webhooks, emails, and so on.
+      description: A flag to disable external notifications - Slack, webhooks, emails,
+        and so on.
       type: boolean
     - contextPath: SigSciences.Corp.Site.Alert.Enabled
       description: A flag to toggle this alert.
@@ -407,7 +436,8 @@ script:
     arguments:
     - name: siteName
       required: true
-      description: The name of the site the alert you want to get data for belongs to.
+      description: The name of the site the alert you want to get data for belongs
+        to.
     - name: alert_id
       required: true
       description: The ID of the alert to retrieve.
@@ -428,13 +458,15 @@ script:
       description: The number of minutes of past traffic to examine.
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.Threshold
-      description: The number of occurrences of the tag in the specified interval that are required to trigger the alert.
+      description: The number of occurrences of the tag in the specified interval
+        that are required to trigger the alert.
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.BlockDurationSeconds
       description: ' The number of seconds this alert is active.'
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.SkipNotifications
-      description: A flag to disable external notifications - Slack, webhooks, emails, and so on.
+      description: A flag to disable external notifications - Slack, webhooks, emails,
+        and so on.
       type: boolean
     - contextPath: SigSciences.Corp.Site.Alert.Enabled
       description: A flag to toggle this alert.
@@ -468,7 +500,8 @@ script:
       description: The name of the tag whose occurrences the alert is watching.
     - name: long_name
       required: true
-      description: A human readable description of the alert. Must be between 3 and 25 characters.
+      description: A human readable description of the alert. Must be between 3 and
+        25 characters.
     - name: interval
       required: true
       auto: PREDEFINED
@@ -479,7 +512,8 @@ script:
       description: The number of minutes of past traffic to examine.
     - name: threshold
       required: true
-      description: The number of occurrences of the tag in the specified interval that are required to trigger the alert.
+      description: The number of occurrences of the tag in the specified interval
+        that are required to trigger the alert.
     - name: enabled
       required: true
       auto: PREDEFINED
@@ -493,7 +527,9 @@ script:
       predefined:
       - info
       - flagged
-      description: A flag that describes what happens when the alert is triggered. "info" creates an incident in the dashboard. "flagged" creates an incident and blocks traffic for 24 hours.
+      description: A flag that describes what happens when the alert is triggered.
+        "info" creates an incident in the dashboard. "flagged" creates an incident
+        and blocks traffic for 24 hours.
     outputs:
     - contextPath: SigSciences.Corp.Site.Alert.CreatedDate
       description: The unique ID of the alert.
@@ -511,13 +547,15 @@ script:
       description: The number of minutes of past traffic to examine.
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.Threshold
-      description: The number of occurrences of the tag in the specified interval that are required to trigger the alert.
+      description: The number of occurrences of the tag in the specified interval
+        that are required to trigger the alert.
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.BlockDurationSeconds
       description: ' The number of seconds that this alert is active.'
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.SkipNotifications
-      description: A flag to disable external notifications - Slack, webhooks, emails, and so on.
+      description: A flag to disable external notifications - Slack, webhooks, emails,
+        and so on.
       type: boolean
     - contextPath: SigSciences.Corp.Site.Alert.Enabled
       description: A flag to toggle this alert.
@@ -551,13 +589,15 @@ script:
       description: The number of minutes of past traffic to examine.
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.Threshold
-      description: The number of occurrences of the tag in the specified interval that are required to trigger the alert.
+      description: The number of occurrences of the tag in the specified interval
+        that are required to trigger the alert.
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.BlockDurationSeconds
       description: ' The number of seconds this alert is active.'
       type: number
     - contextPath: SigSciences.Corp.Site.Alert.SkipNotification
-      description: A flag to disable external notifications - Slack, webhooks, emails, and so on.
+      description: A flag to disable external notifications - Slack, webhooks, emails,
+        and so on.
       type: boolean
     - contextPath: SigSciences.Corp.Site.Alert.Enabled
       description: A flag to toggle this alert.
@@ -587,7 +627,8 @@ script:
       description: The ID of the list in Signal Sciences.
       type: string
     - contextPath: SigSciences.Corp.Site.List.Description
-      description: The description of the list in Signal Sciences. Maximum is 140 characters.
+      description: The description of the list in Signal Sciences. Maximum is 140
+        characters.
       type: string
     - contextPath: SigSciences.Corp.Site.List.CreatedBy
       description: The creator of the list in Signal Sciences.
@@ -612,7 +653,8 @@ script:
       - String
       - Country
       - Wildcard
-      description: The type for the new list. Legal types are "IP", "String", "Country", or "Wildcard".
+      description: The type for the new list. Legal types are "IP", "String", "Country",
+        or "Wildcard".
     - name: entries_list
       required: true
       description: A CSV list of values, consistent with the list's type.
@@ -684,10 +726,13 @@ script:
       predefined:
       - Add
       - Remove
-      description: The method you wish to use - must be "Add" or "Remove". The method will determine whether the entries you provide are added to the list or removed from it
+      description: The method you wish to use - must be "Add" or "Remove". The method
+        will determine whether the entries you provide are added to the list or removed
+        from it
     - name: entries_list
       required: true
-      description: A list of values, consistent with the list's type, separated by commas
+      description: A list of values, consistent with the list's type, separated by
+        commas
       isArray: true
     - name: description
       description: A description for the updated list.
@@ -787,7 +832,9 @@ script:
     - contextPath: SigSciences.Corp.Site.Event.UserAgents
       description: An array of user agents.
     - contextPath: SigSciences.Corp.Site.Event.Action
-      description: If "flagged", the IP address is flagged and subsequent malicious requests will be blocked. If "info", the IP address is flagged and subsequent requests will be logged.
+      description: If "flagged", the IP address is flagged and subsequent malicious
+        requests will be blocked. If "info", the IP address is flagged and subsequent
+        requests will be logged.
     - contextPath: SigSciences.Corp.Site.Event.Reasons
       description: The reason the event was triggered.
     - contextPath: SigSciences.Corp.Site.Event.RequestCount
@@ -803,7 +850,8 @@ script:
       description: The date the event expires (RFC3339 format).
       type: string
     - contextPath: SigSciences.Corp.Site.Event.ExpiredBy
-      description: The email address of the user that expired the event (if the event is expired manually).
+      description: The email address of the user that expired the event (if the event
+        is expired manually).
       type: string
     description: Fetches events from Signal Sciences.
   - name: sigsci-get-event-by-id
@@ -828,7 +876,9 @@ script:
     - contextPath: SigSciences.Corp.Site.Event.UserAgents
       description: An array of user agents.
     - contextPath: SigSciences.Corp.Site.Event.Action
-      description: If "flagged", the IP address is flagged and subsequent malicious requests will be blocked. If "info", the IP address is flagged and subsequent requests will be logged.
+      description: If "flagged", the IP address is flagged and subsequent malicious
+        requests will be blocked. If "info", the IP address is flagged and subsequent
+        requests will be logged.
     - contextPath: SigSciences.Corp.Site.Event.Reasons
       description: The reason the event was triggered.
     - contextPath: SigSciences.Corp.Site.Event.RequestCount
@@ -840,7 +890,8 @@ script:
     - contextPath: SigSciences.Corp.Site.Event.DateExpires
       description: The date the event expires (RFC3339 format).
     - contextPath: SigSciences.Corp.Site.Event.ExpiredBy
-      description: The email address of the user that expired the event (if the event is expired manually).
+      description: The email address of the user that expired the event (if the event
+        is expired manually).
     description: Retrieves an event by the event ID.
   - name: sigsci-expire-event
     arguments:
@@ -861,7 +912,8 @@ script:
     - name: limit
       description: The number of entries to return.
     - name: q
-      description: The search query, in Signal Sciences syntax. If a query is not supplied, no requests will be returned.
+      description: The search query, in Signal Sciences syntax. If a query is not
+        supplied, no requests will be returned.
     outputs:
     - contextPath: SigSciences.Corp.Site.Request.ID
       description: The unique ID of the request.
@@ -944,5 +996,7 @@ script:
     description: Retrieves a request by request ID.
   isfetch: true
   runonce: false
-  dockerimage: demisto/python:2.7.18.24066
+  dockerimage: demisto/python:2.7.18.24398
 fromversion: 5.0.0
+tests:
+- No tests (auto formatted)
