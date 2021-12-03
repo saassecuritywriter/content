@@ -1,6 +1,6 @@
 Use the SaaS Security integration to protect against cloud‑based threats by scanning and analyzing all your assets; applying Security policy to identify exposures, external collaborators, risky user behavior, and sensitive documents; and identifying the potential risks associated with each asset.
 
-## Configure SaaSSecurity on Cortex XSOAR
+## Configure SaaS Security on Cortex XSOAR
 
 1. Navigate to **Settings** > **Integrations** > **Servers & Services**.
 2. Search for **SaaS Security**.
@@ -9,8 +9,8 @@ Use the SaaS Security integration to protect against cloud‑based threats by sc
     | **Parameter** | **Description** | **Required** |
     | --- | --- | --- |
     | Server URL | https://api.aperture.paloaltonetworks.com (US)<br/>https://api.aperture-eu.paloaltonetworks.com (EU)<br/>https://api.aperture-apac.paloaltonetworks.com (APAC) | True |
-    | Client ID | Saas Security Client ID | True |
-    | Client Secret | Saas Security Client Secret | True |
+    | Client ID | SaaS Security Client ID | True |
+    | Client Secret | SaaS Security Client Secret | True |
     | Fetch incidents | Whether to fetch incidents from the SaaS Security platform | False |
     | Incidents Fetch Interval |  | False |
     | Incident type |  | False |
@@ -21,8 +21,8 @@ Use the SaaS Security integration to protect against cloud‑based threats by sc
     | Fetch only incidents with matching status | If nothing is selected, all statuses will be used. | False |
     | Fetch only incidents with matching App IDs | Comma-separated list of Application IDs. Run the 'saas-security-get-apps'
     command to return the Application ID, Name, and Type for all applications. | False |
-    | Incident Mirroring Direction | Select in which direction the incidents should be mirrored. You can mirror Incoming only (from SaasSecurity to Cortex XSOAR), Outgoing only (from Cortex XSOAR to SaasSecurity), or both Incoming And Outgoing. | False | 
-    | Close Mirrored XSOAR Incident | If selected, when closing the SaasSecurity incident it is mirrored in Cortex XSOAR. | False |
+    | Incident Mirroring Direction | Select in which direction the incidents should be mirrored. You can mirror Incoming only (from SaaS Security to Cortex XSOAR), Outgoing only (from Cortex XSOAR to SaaS Security), or both Incoming And Outgoing. | False | 
+    | Close Mirrored XSOAR Incident | If selected, when closing the SaaS Security incident it is mirrored in Cortex XSOAR. | False |
     | Trust any certificate (not secure) |  | False |
     | Use system proxy settings |  | False |
 
